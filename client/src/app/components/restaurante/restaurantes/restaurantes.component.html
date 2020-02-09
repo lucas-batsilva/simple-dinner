@@ -1,0 +1,41 @@
+<button
+  routerLink="/restaurante-salvar"
+  type="button"
+  class="btn btn-primary"
+  aria-label="settings"
+>
+  <clr-icon shape="plus"></clr-icon> Novo restaurante
+</button>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Ações</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let restaurante of restaurantes; let i = index">
+      <td>
+        <button
+          type="button"
+          class="btn btn-primary btn-sm"
+          aria-label="settings"
+          (click)="irParaEdicao(restaurante)"
+        >
+          <clr-icon shape="pencil"></clr-icon> Editar
+        </button>
+
+        <button
+          type="button"
+          class="btn btn-warning btn-sm"
+          aria-label="settings"
+          (click)="excluir(restaurante.id)"
+        >
+          <clr-icon shape="trash"></clr-icon> Excluir
+        </button>
+      </td>
+      <td>{{ restaurante.descricao }}</td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,25 @@
+<h3>CADASTRO DE RESTAURANTE:</h3>
+
+<form
+  clrForm
+  [formGroup]="formRestaurante"
+  (ngSubmit)="salvar(formRestaurante.value)"
+>
+  <clr-input-container>
+    <label>Descrição: </label>
+    <input
+      clrInput
+      type="text"
+      placeholder="Digite a descrição"
+      formControlName="descricao"
+      required
+    />
+  </clr-input-container>
+  <button
+    class="btn btn-primary"
+    type="submit"
+    [disabled]="!formRestaurante.valid"
+  >
+    Adicionar
+  </button>
+</form>

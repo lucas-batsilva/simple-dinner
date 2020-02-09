@@ -1,0 +1,45 @@
+<button
+  routerLink="/prato-salvar"
+  type="button"
+  class="btn btn-primary"
+  aria-label="settings"
+>
+  <clr-icon shape="plus"></clr-icon> Novo prato
+</button>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Ações</th>
+      <th>Descrição</th>
+      <th>Restaurante</th>
+      <th>Valor</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let prato of pratos; let i = index">
+      <td>
+        <button
+          type="button"
+          class="btn btn-primary btn-sm"
+          aria-label="settings"
+          (click)="irParaEdicao(prato)"
+        >
+          <clr-icon shape="pencil"></clr-icon> Editar
+        </button>
+
+        <button
+          type="button"
+          class="btn btn-warning btn-sm"
+          aria-label="settings"
+          (click)="excluir(prato.id)"
+        >
+          <clr-icon shape="trash"></clr-icon> Excluir
+        </button>
+      </td>
+      <td>{{ prato.descricao }}</td>
+      <td>{{ prato.restaurante.descricao }}</td>
+      <td>R$ {{ prato.valor }}</td>
+    </tr>
+  </tbody>
+</table>
